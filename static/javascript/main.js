@@ -3,13 +3,13 @@ const addcard = document.querySelector('.add-task-card');
 const typewriter = document.querySelector('.automatic-type-writer');
 const nav = document.querySelector('header nav');
 const main = document.querySelector('.main-display');
-window.onload = async () => {
-    console.log('hi');
-    let image = document.querySelector('.profile .profile-image img');
-    const response = await fetch('/users/me/avtar');
-    const data = await response.json();
-    console.log(data);
-};
+// window.onload = async () => {
+//     console.log('hi');
+//     let image = document.querySelector('.profile .profile-image img');
+//     const response = await fetch('/users/me/avtar');
+//     const data = await response.json();
+//     console.log(data);
+// };
 let skip = 0;
 window.onload = () => {
     skip = 0;

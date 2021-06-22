@@ -5,7 +5,7 @@ const router = express.Router();
 const User = require('../models/user');
 const auth = require('../Middlewares/auth');
 const multer=require('multer');
-// const sharp=require('sharp');
+const sharp=require('sharp');
 const {sendwelcomeemail,sendgoodbyeemail}=require('../emails/account');
 const upload=multer({
     //if we  need to pass the binary data of the image to  the function we dont need to provide dest option
@@ -45,7 +45,7 @@ router.post('/users',async (req, res) => {
 
 //Uploading Images
 router.post('/users/me/avtar',[auth,upload.single('profileimage')],async (req,res) => {
-    // let buffer= await sharp(req.file.buffer).resize({width:300,height:300}).png().toBuffer();
+    let buffer= await sharp(req.file.buffer).resize({width:300,height:300}).png().toBuffer();
     req.user.avtar = req.file.buffer;
     await req.user.save();
     res.render('main');
