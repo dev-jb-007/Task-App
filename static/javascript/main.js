@@ -123,13 +123,13 @@ const addtask = async () => {
     tasks();
 }
 const signout = async () => {
-    await fetch('/users/left-sideut', {
+    await fetch('/users/signout', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         }
     });
-    window.location.href = "http://localhost:3000"
+    window.location.href = "https://dev-jb-007-task-manager.herokuapp.com"
 }
 
 const deletetask = async (element) => {
