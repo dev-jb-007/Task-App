@@ -95,7 +95,7 @@ userSchema.statics.findbyemailandpassword=async (email,password)=>{
 //To define user based function for instance of a models
 userSchema.methods.createAuthToken=async function(){
     const user=this;
-    const token=jwt.sign({_id:user._id.toString()},process.env.JSON_SECRET);
+    const token=jwt.sign({_id:user._id.toString()},process.env.JWT_SECRET);
     user.tokens=user.tokens.concat({token:token});//.concat combines two or more array
     await user.save();
     return token;
