@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+{{!-- To show images from binary data to client side
+<img src="data:image/jpg;based64,{binary data}">
+--}}
+
+<body>
+    <header>
+        <nav>
+            <div class="left-side">
+                <div class="logo"><img src="https://unsplash.it/30/30" alt="left-side"></div>
+
+                <ul>
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+            </div>
+            <div class="right-side-button">
+                <div class="profile">
+                    <div class="profile-image">
+                        <img src='/users/me/avtar'>
+                    </div>
+                    <div class="profile-list">
+                        <ul>
+                            <li><a onclick="signout()">Sign Out</a></li>
+                            <li><a href>Edit Profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+        </nav>
+        <div class="automatic-type-writer">
+            <h1>Get your task here</h1>
+        </div>
+    </header>
+    <section class="main-display">
+        <div class="sort">
+            <form action="/users/me/avtar" method="post" enctype="multipart/form-data">
+                <input type="file" name="profileimage" id="profileimage">
+                <input type="submit" value="submit">
+            </form>
+            <label for="truetask">Completed</label>
+            <input type="checkbox" name="truetask" id="truetask" onclick='tasks()'>
+            <label for="falsetask">Incomplete</label>
+            <input type="checkbox" name="falsetask" id="falsetask" onclick="tasks()">
+            <button onclick="showsort()">Sort By</button>
+            <div class="sortBy" style="display:none">
+                <label for="modified">Modified</label>
+                <input type="radio" name="criteria" id="modified" onclick='tasks()'>
+                <label for="created">Created</label>
+                <input type="radio" name="criteria" id="created" onclick='tasks()'>
+                <br>
+                <label for="Ascending">Ascending</label>
+                <input type="radio" name="order" id="Ascending" onclick='tasks()'>
+                <label for="Descending">Descending</label>
+                <input type="radio" name="order" id="Descending" onclick='tasks()'>
+            </div>
+        </div>
+        <div class="tasks">
+        </div>
+        <fieldset>
+            <legend>Create a task</legend>
+            {{!-- <input type="text" name="discription" id="discription">
+            <button id="addtask" onclick="addtask()">Add Task</button>
+            <button id="nextpage" onclick="tasks(this)">Next</button>
+            <button id="prevpage" onclick="tasks(this)">Previous</button> --}}
+        </fieldset>
+    </section>
+
+    <div class="add-task">
+        <div class="cross-image">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus-lg"
+                viewBox="0 0 16 16">
+                <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z" />
+            </svg>
+        </div>
+        <div class="task-list">
+            <ul>
+                <li>
+                    <a id="show-task-btn" onclick="showtaskcard()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="add-task-card">
+        <div class="header">
+            <h4>Header</h4>
+            <input type="text" name="header" id="header">
+        </div>
+        {{!-- <input type="text" name="discription" id="discription"> --}}
+        <div class="discription">
+            <h4>Description</h4>
+            <textarea name="discription" id="discription" cols="30" rows="10"></textarea>
+        </div>
+        <button id="addtask" onclick="addtask()">Add Task</button>
+    </div>
+</body>
+<script src="/javascript/main.js"></script>
+
+</html>

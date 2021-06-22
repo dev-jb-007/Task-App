@@ -1,0 +1,416 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+
+
+*{  
+    margin:0px;
+    padding:0px;
+    box-sizing:border-box;
+    scroll-behavior: smooth;
+}
+/* variables */
+:root{
+    --primary-bg-color-light:#ffffff;
+    --primary-bg-color-dark:#847d7d;
+}
+
+/* utility-classes */
+body::-webkit-scrollbar{
+    display:none;
+}
+.text-align{
+    text-align:center;
+}
+h1,h2,h3{
+    font-weight: 800;
+    text-transform: capitalize;
+}
+ul{
+    list-style:none;
+}
+body{
+    height:100vh;
+    background-color:var(--primary-bg-color-light);
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+    color:black;
+}
+
+/* Navbar-------------------------------------- */
+header{
+    padding:0px 40px;
+}
+header nav{
+    display:flex;
+    font-size:1.3rem;
+}
+header nav .left-side,header nav .right-side-button{
+    
+    flex-basis: 100%;
+    padding:10px 20px;
+}
+header nav .left-side{
+    display:flex;
+    flex:2;
+    justify-content: space-evenly;
+    align-items: center;
+}
+header nav .right-side-button{
+    flex:1;
+}
+header nav .left-side ul{
+    flex:2;
+    display:flex;
+    justify-content:space-evenly;
+}
+header nav .left-side ul li{
+    border-radius:20px;
+    background-color:transparent;
+    padding: 5px 10px;
+}
+header nav .left-side ul li:hover{
+    background-color:black;
+}
+header nav .left-side ul li:hover a{
+    color:white;
+}
+header nav .left-side ul .active{
+    border-radius:20px;
+    background-color:black;
+    padding: 5px 10px;
+}
+header nav .left-side ul .active a{
+    color:white;
+}
+header nav .left-side .logo{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+}
+header nav .left-side .logo img{
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+}
+header nav .right-side-button{
+    display:flex;
+    justify-content:flex-end;
+    align-items: center;
+}
+header nav .right-side-button a{
+    border-radius:20px;
+    padding: 5px 10px;
+}
+header nav .right-side-button a:hover{
+    background-color:black;
+    color:white;
+}
+header nav .right-side-button a:first-child{
+    margin-right: 20px;
+    position: relative;
+}
+header nav .right-side-button a:first-child::after{
+    content:'';
+    position: absolute;
+    width:3px;
+    background-color:black;
+    height:100%;
+    bottom:2%;
+    right:-11.5px;
+}
+
+/* Automatic typewrite  */
+.automatic-type-writer{
+    display:block;
+    width:max-content;
+    margin:auto;
+    margin-top:100px;
+}
+.automatic-type-writer h1{
+    font-size:4rem;
+    font-family: 'Roboto', sans-serif;
+    position:relative;
+}
+.automatic-type-writer h1::before{
+    content:'';
+    position:absolute;
+    top:0px;
+    bottom:0px;
+    right:0px;
+    left:0px;
+    background-color:white;
+    animation: typewriter 3s steps(21) forwards;
+}
+.automatic-type-writer h1::after{
+    content:'';
+    width:2px;
+    background-color: black;
+    height:100%;
+    position:absolute;
+    left:0;
+    animation: typewriter 3s steps(21) forwards,
+    blink 0.5s infinite;
+}
+@keyframes typewriter{
+    from{
+        left:0%;
+    }
+    to{
+        left:100%;
+    }
+}
+@keyframes blink{
+    to{
+        background-color:transparent;
+    }
+}
+
+/* Section 1 */
+.intro-section{
+    width:100%;
+    margin-inline:auto;
+    margin-block:200px;
+    padding:0px 40px;
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+}
+.intro-section .right-side{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+}
+.intro-section .right-side img{
+    width:400px;
+    height:400px;
+}
+.intro-section .left-side{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.intro-section .left-side div{
+    max-width: 600px;
+}
+.intro-section .left-side div  h2{
+    font-size:3rem;
+    font-family:'Roboto', sans-serif;
+    margin-bottom: 70px;
+    position: relative;
+}
+.intro-section .left-side div p{
+    font-size:1.2rem;
+    line-height:30px;
+}
+.intro-section .left-side div  h2::after{
+    content:'';
+    position:absolute;
+    width:60%;
+    height:3px;
+    background-color:black;
+    bottom:0px;
+    left:0px;
+}
+
+/* Section Login */
+#login-section{
+    padding:0px 40px;
+    width:100%;
+    height:800px;
+    display:grid;
+    grid-template-rows: 1fr;
+}
+#login-section .login{
+    width:100%;
+    display:flex;
+    justify-content:space-around;
+    align-items: center;
+}
+#login-section .login .login-text{
+    max-width: 600px;
+    transform:translateX(600px);
+    transition:0.6s;
+}
+#login-section .login .login-text h2{
+    font-size:3rem;
+    font-family:'Roboto', sans-serif;
+    margin-bottom: 70px;
+    position: relative;
+}
+#login-section .login .login-text p{
+    font-size:1.2rem;
+    line-height:30px;
+}
+#login-section .login .card{
+    transform:translateX(-600px);
+    transition:0.6s;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+    align-items:center;
+    width:400px;
+    height:500px;
+    border:1px solid grey;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#login-section .login .card img{
+    width:200px;
+    height:200px;
+}
+#login-section .login .card h3{
+    font-weight: none;
+    font-size:1.2rem;
+    font-family: 'Roboto', sans-serif;
+}
+#login-section .login .card input{
+    text-align:center;
+    padding:10px 20px;
+    border-radius:5px;
+    border:1px solid grey;
+    position: relative;
+}
+#login-section .login .card a{
+    border-radius:20px;
+    padding: 5px 10px;
+}
+#login-section .login .card a:hover{
+    background-color:black;
+    color:white;
+}
+
+/* Signup Section  */
+#signup-section{
+    padding:0px 40px;
+    width:100%;
+    height:800px;
+    display:grid;
+    grid-template-rows: 1fr;
+    margin-top:-200px;
+}
+#signup-section .signup{
+    margin-top:200px;
+    width:100%;
+    display:flex;
+    justify-content:space-around;
+    align-items: center;
+}
+#signup-section .signup .signup-text{
+    max-width: 600px;
+    order:1;
+    transform:translateX(-600px);
+    transition:0.6s;
+}
+#signup-section .signup .signup-text h2{
+    font-size:3rem;
+    font-family:'Roboto', sans-serif;
+    margin-bottom: 70px;
+    position: relative;
+}
+#signup-section .signup .signup-text p{
+    font-size:1.2rem;
+    line-height:30px;
+}
+#signup-section .signup .card{
+    order:2;
+    transform:translateX(600px);
+    transition:0.6s;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+    align-items:center;
+    width:400px;
+    height:500px;
+    border:1px solid grey;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#signup-section .signup .card img{
+    width:200px;
+    height:200px;
+}
+#signup-section .signup .card h3{
+    font-weight: none;
+    font-size:1.2rem;
+    font-family: 'Roboto', sans-serif;
+}
+#signup-section .signup .card input{
+    text-align:center;
+    padding:10px 20px;
+    border-radius:5px;
+    border:1px solid grey;
+    position: relative;
+}
+#signup-section .signup .card a{
+    border-radius:20px;
+    padding: 5px 10px;
+}
+#signup-section .signup .card a:hover{
+    background-color:black;
+    color:white;
+}
+#signupbtn{
+    border-radius:20px;
+    padding: 5px 10px;
+}
+#signupbtn:hover{
+    background-color:black;
+    color:white;
+}
+
+#error{
+    width:0px;
+    transition:0.4s;
+}
+
+/* footer */
+footer{
+    margin-top:100px;
+    width:100%;
+    background-color:black;
+    height:200px;
+    display:flex;
+}
+footer .logo{
+    flex:1;
+}
+footer .footer-nav{
+    flex:2;
+}
+footer .footer-nav h3{
+    color:white;
+}
+/* Social Media  handle  */
+.social-media{
+    position:fixed;
+    top:50%;
+    left:0;
+    transform:translateY(-50%);
+}
+.social-media .icon{
+    transform:translateX(-80px);
+    transition: 0.5s;
+    display:flex;
+    width:130px;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:10px;
+}
+.social-media .icon a{
+    margin-right: 10px;
+    margin-left:10px;
+}
+.social-media .icon:hover{
+    transform:translateX(0);
+}
+/* Responsive----------------------- */
+@media(max-width:780px)
+{
+    header nav{
+        display:flex;
+        width:100%;
+        font-size:1.3rem;
+        flex-flow:wrap;
+    }
+}
