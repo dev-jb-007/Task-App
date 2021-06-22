@@ -46,7 +46,7 @@ router.post('/users',async (req, res) => {
 //Uploading Images
 router.post('/users/me/avtar',[auth,upload.single('profileimage')],async (req,res) => {
     let buffer= await sharp(req.file.buffer).resize({width:300,height:300}).png().toBuffer();
-    req.user.avtar = req.file.buffer;
+    req.user.avtar =buffer;
     await req.user.save();
     res.render('main');
 },(error,req,res,next) => {
