@@ -35,7 +35,7 @@ router.get('/tasks',auth,async (req, res) => {
             path:'tasks',
             match,
             options:{
-                limit:5,
+                limit:6,
                 skip:parseInt(req.query.skip),
                 sort
             }
@@ -51,9 +51,9 @@ router.get('/tasks',auth,async (req, res) => {
         res.send(e).status(500);
     }
 })
-router.patch('/tasks/:discription',async (req, res)=>{
+router.patch('/tasks/:title',async (req, res)=>{
     const update=Object.keys(req.body);
-    const allowedUpdates=['discription','completed'];
+    const allowedUpdates=['discription','completed','title'];
     const isUpdateValidate=update.every((update)=>allowedUpdates.includes(update));
 
     if(!isUpdateValidate)
@@ -61,7 +61,7 @@ router.patch('/tasks/:discription',async (req, res)=>{
         return res.send({error:'Invalid Update field'}).status(400);
     }
     try{
-        const task=await Task.findOne({discription:req.params.discription});
+        const task=await Task.findOne({title:req.params.title});
         
         // const task=await Task.findOneAndUpdate({discription:req.params.discription},req.body,{new:true,runValidators:true});
         if(!task){
@@ -97,7 +97,7 @@ router.post('/tasks',auth,async (req, res) => {
 
 router.patch('/tasks/:discription',async (req, res)=>{
     const update=Object.keys(req.body);
-    const allowedUpdates=['discription','completed'];
+    const allowedUpdates=['discription','completed','title'];
     const isUpdateValidate=update.every((update)=>allowedUpdates.includes(update));
 
     if(!isUpdateValidate)
@@ -105,7 +105,7 @@ router.patch('/tasks/:discription',async (req, res)=>{
         return res.send({error:'Invalid Update field'}).status(400);
     }
     try{
-        const task=await Task.findOneAndUpdate({discription:req.params.discription},req.body,{new:true,runValidators:true});
+        const task=await Task.findOneAndUpdate({title:req.params.title},req.body,{new:true,runValidators:true});
         if(!task){
             return res.send({error:'No such task found'}).status(400);
         }
@@ -119,9 +119,9 @@ router.patch('/tasks/:discription',async (req, res)=>{
 
 //Delete Task
 
-router.delete('/tasks/:discription',async (req, res)=>{
+router.delete('/tasks/:title',async (req, res)=>{
     try {
-        const task=await Task.findOneAndDelete({discription:req.params.discription});
+        const task=await Task.findOneAndDelete({title:req.params.title});
         if(!task){
             return res.send({error:"No such task found"})
         }
