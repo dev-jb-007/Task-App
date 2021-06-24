@@ -32,7 +32,11 @@ router.post('/users',async (req, res) => {
         let token = await user.createAuthToken();
         sendwelcomeemail(user.email,user.name);//It is a async method but we dont need to wait for the user to proced without welcome email
         res.cookie('jwt',token,{
+<<<<<<< HEAD
             expires:new Date(Date.now()+50000000),
+=======
+            expires:new Date(Date.now()+500000),
+>>>>>>> 6bcc288e3920ff21fdcca7ac4ca0b06c4e19d7ad
             httpOnly:true
         });
         res.status(201).send({ user, token });
@@ -59,7 +63,11 @@ router.post('/users/login', async (req, res) => {
         const user = await User.findbyemailandpassword(req.body.email, req.body.password);
         const token = await user.createAuthToken();
         res.cookie('jwt',token,{
+<<<<<<< HEAD
             expires:new Date(Date.now()+50000000),
+=======
+            expires:new Date(Date.now()+500000),
+>>>>>>> 6bcc288e3920ff21fdcca7ac4ca0b06c4e19d7ad
             httpOnly:true
         })
         //Here the User is called a model and user is called an instance .To create a function for the model we can use the .statics method but for creating a function for the instance we can use the    .method to  create a user-defined function for the user instance.

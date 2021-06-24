@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/editprofile.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left-side">
+                <div class="logo"><img src="https://unsplash.it/30/30" alt="left-side"></div>
+
+                <ul>
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+            </div>
+            <div class="right-side-button">
+                <div class="profile">
+                    <div class="profile-image">
+                        <img src='/users/me/avtar'>
+                    </div>
+                </div>
+        </nav>
+        {{!-- <div class="automatic-type-writer">
+            <h1>Get your task here</h1>
+        </div> --}}
+    </header>
+    <form method="POST" action="../users/me" id="login-form" class="login-form" autocomplete="off" role="main">
+        
+        <div onclick="changeprofileimage()"id="profile-image">
+
+        </div>
+        <div>
+            <label class="label-email">
+                <input  type="text" disabled class="text" name="name" placeholder="Name" id="name"tabindex="1" required >
+                <span>Name</span>
+            </label>
+            <a onclick="editcontent(this)">Edit</a>
+        </div>
+        <div>
+            <label class="label-email">
+                <input  type="number" disabled name="age" placeholder="Age" tabindex="1" id="age" required >
+                <span>Age</span>
+            </label>
+            <a onclick="editcontent(this)">Edit</a>
+        </div>
+        <div>
+            <label class="label-email">
+                <input  type="email" disabled class="text" name="email" placeholder="Email" id="email" tabindex="1" required >
+                <span>Email</span>
+            </label>
+            <a onclick="editcontent(this)">Edit</a>
+        </div>
+        <input type="checkbox" checked class="show-password a11y-hidden" id="show-password" tabindex="3" >
+        <label class="label-show-password" for="show-password">
+            <span>Show Password</span>
+        </label>
+        <div>
+            <label class="label-password">
+                <input  type="text" disabled class="text" name="password" placeholder="Password" id="password"  tabindex="2" >
+                <span>Password</span>
+
+            </label>
+            <a onclick="editcontent(this)">Edit</a>
+        </div>
+        {{!-- <input type="file" name="avtar" id="avtar"/> --}}
+        <input type="submit" value="Save Changes" />
+        {{!-- <div class="email">
+            <a href="#">Forgot password?</a>
+        </div> --}}
+        {{!-- <figure aria-hidden="true">
+            <div class="person-body"></div>
+            <div class="neck skin"></div>
+            <div class="head skin">
+                <div class="eyes"></div>
+                <div class="mouth"></div>
+            </div>
+            <div class="hair"></div>
+            <div class="ears"></div>
+            <div class="shirt-1"></div>
+            <div class="shirt-2"></div>
+        </figure> --}}
+    </form>
+</body>
+<script src="/javascript/editprofile.js"></script>
+
+</html>

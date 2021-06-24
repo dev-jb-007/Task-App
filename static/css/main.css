@@ -218,6 +218,7 @@ header nav .right-side-button .profile:hover >.profile-list{
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     /* box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px; */
 }
+<<<<<<< HEAD
 /* sort. */
 .sort{
     width:50vw;
@@ -249,6 +250,8 @@ header nav .right-side-button .profile:hover >.profile-list{
     align-items:center;
     justify-content:space-around;
 }
+=======
+>>>>>>> 6bcc288e3920ff21fdcca7ac4ca0b06c4e19d7ad
 /* main display  */
 .main-display{
     margin:10px 10%;
@@ -387,6 +390,7 @@ header nav .right-side-button .profile:hover >.profile-list{
 .card .task-header input{
     position:relative;
     display:none;
+<<<<<<< HEAD
     font-family: 'Roboto', sans-serif;
     width:300px;
     height:3rem;
@@ -394,10 +398,15 @@ header nav .right-side-button .profile:hover >.profile-list{
     text-align: center;
     font-size:2rem;
     color:white;
+=======
+    height:3rem;
+    border:none;
+>>>>>>> 6bcc288e3920ff21fdcca7ac4ca0b06c4e19d7ad
     /* left:50%;
     top:50%; */
     background-color:inherit;
 }
+<<<<<<< HEAD
 input:focus, textarea:focus, select:focus{
     outline: none;
 }
@@ -406,12 +415,20 @@ input:focus, textarea:focus, select:focus{
     text-align:center;
     font-style: normal;
     line-height:30px;
+=======
+.card .task-discription #update-discription{
+    position:relative;
+>>>>>>> 6bcc288e3920ff21fdcca7ac4ca0b06c4e19d7ad
     display:none;
     height:3rem;
     border:none;
     background-color:inherit;
 }
+<<<<<<< HEAD
 .card .task-discription textarea::-webkit-resizer{
+=======
+.card .task-discription #update-discription::-webkit-resizer{
+>>>>>>> 6bcc288e3920ff21fdcca7ac4ca0b06c4e19d7ad
     display:none;
 }
 .card .text-edit a{
