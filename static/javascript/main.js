@@ -1,27 +1,10 @@
-<<<<<<< HEAD
 
 
 let skip = 0;
-=======
-let id = 1;
-{/* <div>
-        <p>${element.discription}</p>
-        <br>
-        <p>Completed:${element.completed}</p>
-        <button  onclick='deletetask(this)'>Delete</button>
-        <button  onclick='edittask(this)'>Edit</button>
-        <div class="updateSection" style="display:none">
-            <input type="text">
-            <input type="checkbox">
-            <button id="update" onclick="update(this)">Update</button>
-        </div>
-        </div> */}
->>>>>>> 6bcc288e3920ff21fdcca7ac4ca0b06c4e19d7ad
 const addcard = document.querySelector('.add-task-card');
 const typewriter = document.querySelector('.automatic-type-writer');
 const nav = document.querySelector('header nav');
 const main = document.querySelector('.main-display');
-<<<<<<< HEAD
 
 window.onload = () => {
     skip = 0;
@@ -97,99 +80,6 @@ const tasks = async (element) => {
         if (element) {
             if (element.id == 'nextpage') {
                 skip += 6;
-=======
-// window.onload = async () => {
-//     
-//     let image = document.querySelector('.profile .profile-image img');
-//     const response = await fetch('/users/me/avtar');
-//     const data = await response.json();
-//   
-// };
-let skip = 0;
-window.onload = () => {
-    skip = 0;
-}
-const tasks = async (element) => {
-    let id = 1;
-    if (element) {
-        if (element.id == 'nextpage') {
-            skip += 6;
-        }
-        else if (element.id == 'prevpage') {
-            skip -= 6;
-        }
-    }
-    // const modified=document.getElementById('modified').checked;
-    // const created=document.getElementById('created').checked;
-    // const Ascending=document.getElementById('Ascending').checked;
-    // const Descending=document.getElementById('Descending').checked;
-    // const truetask = document.getElementById('truetask').checked;
-    // const falsetask = document.getElementById('falsetask').checked;
-    let html = ``;
-    const truetask = false;
-    const falsetask = false;
-    let task = document.querySelector('.main-display');
-    if (truetask == true) {
-        let response = await fetch(`/tasks?completed=true&skip=${skip}`);
-        let data = await response.json();
-
-        data.array.forEach(element => {
-            if (element.completed == true) {
-                html += `<div>
-                <div class="card">
-                    <button id="close${id++}"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                        <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z" />
-                    </svg></button>
-                    <div class="task-header">
-                        <h3>${element.title}</h3>
-                    </div>
-                    <div class="task-discription">
-                        ${element.discription}
-                    </div>
-                    <div class="edit">
-                        <a onclick="tasksoptions(this)">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
-                                class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-                                <path
-                                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>`
-            }
-        })
-        task.innerHTML = html;
-        return
-    }
-    else if (falsetask == true) {
-        let response = await fetch(`/tasks?completed=false&skip=${skip}`);
-        let data = await response.json();
-        data.array.forEach(element => {
-            if (element.completed == false) {
-                html += `<div>
-                <div class="card">
-                    <button id="close${id++}"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                        <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z" />
-                    </svg></button>
-                    <div class="task-header">
-                        <h3>${element.title}</h3>
-                    </div>
-                    <div class="task-discription">
-                        ${element.discription}
-                    </div>
-                    <div class="edit">
-                        <a onclick="tasksoptions(this)">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
-                                class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-                                <path
-                                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>`
->>>>>>> 6bcc288e3920ff21fdcca7ac4ca0b06c4e19d7ad
             }
             else if (element.id == 'prevpage') {
                 skip -= 6;
@@ -201,7 +91,6 @@ const tasks = async (element) => {
     let task = document.querySelector('.main-display');
     const response = await fetch(url);
     const data = await response.json();
-
     if (data.error) {
         return alert(data.error.message);
     }
@@ -219,32 +108,20 @@ const tasks = async (element) => {
         }
         html += `<div>
         <div class="card">
-<<<<<<< HEAD
             <button id="close${id}"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-=======
-            <button id="close1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
->>>>>>> 6bcc288e3920ff21fdcca7ac4ca0b06c4e19d7ad
                     class="bi bi-x-lg" viewBox="0 0 16 16">
                     <path
                         d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z" />
                 </svg></button>
             <div class="task-header"  style="background-color:${bgcolor}">
                 <h3>${element.title}</h3>
-<<<<<<< HEAD
                 <input type="text">
-=======
-                <input type="text" name="" id="">
->>>>>>> 6bcc288e3920ff21fdcca7ac4ca0b06c4e19d7ad
             </div>
             <div class="task-discription">
                 <p>
                 ${element.discription}
                 </p>
-<<<<<<< HEAD
                 <textarea name="dicription" cols="50" rows="50"></textarea>
-=======
-                <textarea name="dicription" id="update-discription" cols="30" rows="10"></textarea>
->>>>>>> 6bcc288e3920ff21fdcca7ac4ca0b06c4e19d7ad
             </div>
             <div class="edit">
                 <a onclick="tasksoptions(this)">
@@ -281,11 +158,7 @@ const tasks = async (element) => {
                 </svg>
             </button>
             <button class="text-edit">
-<<<<<<< HEAD
                 <a id="updatebtn${id++}">
-=======
-                <a  id="updatebtn">
->>>>>>> 6bcc288e3920ff21fdcca7ac4ca0b06c4e19d7ad
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                     class="bi bi-save" viewBox="0 0 16 16">
                     <path
@@ -319,11 +192,7 @@ const addtask = async () => {
     })
     const data = await response.json();
     if (data.error) {
-<<<<<<< HEAD
         return alert(data.error.message);
-=======
-        return alert(`${data}`);
->>>>>>> 6bcc288e3920ff21fdcca7ac4ca0b06c4e19d7ad
     }
     typewriter.style.opacity = 1;
     nav.style.opacity = 1;
@@ -376,13 +245,9 @@ const donetask = async (element) => {
         },
         body: JSON.stringify(data)
     });
-<<<<<<< HEAD
     if (data.error) {
         return alert(data.error.message);
     }
-=======
-    console.log(await response.json());
->>>>>>> 6bcc288e3920ff21fdcca7ac4ca0b06c4e19d7ad
     tasks();
 }
 const undotask = async (element) => {
@@ -397,55 +262,12 @@ const undotask = async (element) => {
         },
         body: JSON.stringify(data)
     });
-<<<<<<< HEAD
     if (data.error) {
         return alert(data.error.message);
     }
-=======
-    console.log(await response.json());
->>>>>>> 6bcc288e3920ff21fdcca7ac4ca0b06c4e19d7ad
     tasks();
 }
-const update = async (element) => {
-    // let oldDisc = element.parentElement.parentElement.children[0].textContent;
-    // let parent = element.parentElement.parentElement;
-    // let discription = parent.children[5].children[0].value;
-    // let completed = parent.children[5].children[1].checked;
-    let title=element.parentElement.parentElement.children[1];
-    let discription=element.parentElement.parentElement.children[2];
-    let initialheader=title.children[0].innerText;
-    title.children[1].style.display="block";
-    discription.children[1].style.display="block";
-    // let oldheader=title.children[0].innerText.toLowerCase();
-    title.children[1].value=title.children[0].innerText;
-    discription.children[1].value=discription.children[0].innerText;
-    
-    document.styleSheets[1].addRule('.card .text-edit a:nth-child(2)','opacity: 0;pointer-events:none');
-    document.styleSheets[1].addRule('.card .text-edit a:first-child','opacity: 1;pointer-events:auto');
-    title.children[0].innerText='';
-    discription.children[0].innerText='';
-    document.getElementById('updatebtn').addEventListener('click',async()=>{
-        let heading=title.children[1].value;
-        let newdisc=discription.children[1].value;
-        console.log(heading.toLowerCase(),newdisc);
-        let data={
-            title:heading.toLowerCase(),
-            discription:newdisc
-        };
-        
-        const response = await fetch(`/tasks/${initialheader.toLowerCase()}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        });
-        console.log(await response.json());
-        tasks();
-    })
-}
 
-<<<<<<< HEAD
 
 const update = async (element) => {
     console.log('hi');
@@ -514,12 +336,6 @@ const update = async (element) => {
     }
 
 }
-=======
-const showsort = () => {
-    document.querySelector('.sortBy').style.display = 'block';
-};
-
->>>>>>> 6bcc288e3920ff21fdcca7ac4ca0b06c4e19d7ad
 const showtaskcard = () => {
 
     typewriter.style.opacity = 0.3;
@@ -529,13 +345,6 @@ const showtaskcard = () => {
     document.addEventListener("mousedown", (event) => {
 
         if (concernedElement.contains(event.target)) {
-<<<<<<< HEAD
-=======
-            // typewriter.style.opacity = 0.3;
-            // nav.style.opacity = 0.3;
-            // main.style.opacity = 0.3;
-            // addcard.style.opacity = '1';
->>>>>>> 6bcc288e3920ff21fdcca7ac4ca0b06c4e19d7ad
 
         } else {
             typewriter.style.opacity = 1;
@@ -612,13 +421,6 @@ const tasksoptions = (element) => {
     typewriter.style.opacity = 0.2;
     nav.style.opacity = 0.2;
     const newfunction = () => {
-<<<<<<< HEAD
-=======
-
-
-        // let parent = element.parentElement.parentElement.parentElement;
-        // document.removeEventListener("mousedown", myfunction);
->>>>>>> 6bcc288e3920ff21fdcca7ac4ca0b06c4e19d7ad
         typewriter.style.opacity = 1;
         nav.style.opacity = 1;
         card.style.transform = 'translate(0,0)';
@@ -637,10 +439,6 @@ const tasksoptions = (element) => {
         card.children[6].style.opacity = '0';
         card.children[6].style.pointerEvents = 'none';
     }
-<<<<<<< HEAD
-=======
-    // document.addEventListener("mousedown", myfunction);
->>>>>>> 6bcc288e3920ff21fdcca7ac4ca0b06c4e19d7ad
     if (document.querySelector('#close1')) {
         document.querySelector('#close1').addEventListener("click", newfunction);
     }
@@ -660,34 +458,3 @@ const tasksoptions = (element) => {
         document.querySelector('#close6').addEventListener("click", newfunction);
     }
 }
-<<<<<<< HEAD
-=======
-
-const editbtn=()=>{
-    console.log('edit');
-}
-
-{/* <div>
-    <div class="card">
-        <button id="close1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-            <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z" />
-        </svg></button>
-        <div class="task-header">
-            <h3>1</h3>
-        </div>
-        <div class="task-discription">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam unde iusto beatae odio nostrum cumque,
-            recusandae ad nihil saepe sequi, commodi fugit, voluptatem error dolor a omnis minima modi ut.
-        </div>
-        <div class="edit">
-            <a onclick="tasksoptions(this)">
-                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
-                    class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-                    <path
-                        d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-                </svg>
-            </a>
-        </div>
-    </div>
-</div> */}
->>>>>>> 6bcc288e3920ff21fdcca7ac4ca0b06c4e19d7ad
