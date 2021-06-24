@@ -7,6 +7,8 @@ const app = express();
 const port=process.env.PORT;
 const hbs = require('hbs');
 const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({limit: '5000mb', extended: true, parameterLimit: 100000000000}));
 const multer=require('multer');//it is a famous npm library used for uploading diff types of files
 // const upload=multer({
 //     dest:'pdf',
@@ -70,6 +72,9 @@ console.log(path.join(__dirname, '../static'));
 
 app.get('',(req,res) => {
     res.render('login');
+})
+app.get('/mainpage/editprofile',(req,res) => {
+    res.render('editprofile');
 })
 app.get('/mainpage',(req,res) => {
     res.render('main');

@@ -59,13 +59,7 @@ header nav .right-side-button .profile:hover >.profile-list{
     pointer-events:auto;
     transform: translate(50%,0px);
 }
-/* main display  */
-.main-display{
-    margin:10px 40px;
-    height:600px;
-    border:1px solid black;
-    transition:0.4s;
-}
+
 
 /* typewriter */
 .automatic-type-writer{
@@ -130,10 +124,12 @@ header nav .right-side-button .profile:hover >.profile-list{
 .add-task .task-list{
     /* border:1px solid  black; */
     height:50px;
-    
+    pointer-events:none;
     position:absolute;
     top:-50px;
     left:50%;
+    opacity: 0;
+    transition:0.5s;
     transform: translateX(-50%);
 }
 .add-task .task-list ul li{
@@ -141,11 +137,9 @@ header nav .right-side-button .profile:hover >.profile-list{
     display:flex;
     align-items:center;
     justify-content:space-evenly;
-    pointer-events:none;
-    opacity: 0;
-    transition:0.5s;
+    
 }
-.add-task:hover >.task-list ul li{
+.add-task:hover >.task-list{
     pointer-events:auto;
     opacity: 1;
 }
@@ -210,4 +204,269 @@ header nav .right-side-button .profile:hover >.profile-list{
     background-color:transparent;
     color:white;
     /* z-index: 1; */
+}
+
+/* main-display  */
+.main-display .card{
+    background-color:white;
+    width:398px;
+    height:372.5px;
+    position: relative;
+    border-radius:30px;
+    overflow:hidden;
+    transition: 0.4s;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    /* box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px; */
+}
+/* sort. */
+.sort{
+    width:50vw;
+    height:100px;
+    /* border:1px solid black; */
+    margin:20px auto;
+    display:flex;
+    justify-content:space-around;
+    align-items: center;
+}
+.sort > div > div{
+    display:flex;
+    width:100px;
+    height:40px;
+    align-items:center;
+    justify-content: space-around;
+}
+.sort >div >div p{
+    letter-spacing: 1px;
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+.sort > div{
+    /* border:1px solid red; */
+    width:33%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:space-around;
+}
+/* main display  */
+.main-display{
+    margin:10px 10%;
+    height:800px;
+    width:80%;
+    /* border:1px solid black; */
+    transition:0.4s;
+    padding: 10px 40px;
+    display:grid;
+    /* justify-content:center; */
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 35px;
+    
+}
+/* #2962ff */
+.main-display .card .task-header{
+    width:100%;
+    height:70px;
+    background-color:#FFD52E;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.main-display .card .task-header h3{
+    color:white;
+    font-size:2rem;
+    text-align:center;
+    font-family: 'Roboto',sans-serif;
+    letter-spacing: 1px;
+}
+.main-display .card .task-discription{
+    padding:10px 20px;
+    text-align:center;
+    line-height: 30px;
+    background-color:white
+}
+.main-display .card .edit{
+    position:absolute;
+    bottom:15px;
+    right:15px;
+    width:50px;
+    height: 50px;
+    border-radius:50%;
+    background-color:#2962ff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:box-shadow 0.3s;
+    cursor: pointer;
+}
+.main-display .card .edit svg{
+    color:white;
+
+}
+.main-display .card #completed{
+    position:absolute;
+    border:none;
+    bottom:15px;
+    left:15px;
+    width:50px;
+    height: 50px;
+    border-radius:50%;
+    background-color:#2962ff;
+    /* background-color:red; */
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:box-shadow 0.3s;
+    cursor: pointer;
+    /* overflow:scroll; */
+}
+.main-display .card #completed .scroll-effect{
+    width:50px;
+    height: 120px;
+    transition: 0.3s;
+    pointer-events: none;
+}
+.main-display .card #completed .scroll-effect a{
+    pointer-events:none;
+}
+.main-display .card #completed .scroll-effect #incompletetask svg{
+    transform:rotate(45deg);
+}
+.main-display .card #completed .scroll-effect svg{
+    color:white;
+}
+.main-display .card #completed .scroll-effect svg:first-child{
+    margin-bottom: 10px;
+}
+.main-display .card #completed:hover >.scroll-effect{
+    transform: translateY(46px);
+    pointer-events:auto;
+}
+.main-display .card #completed:hover >.scroll-effect a{
+    pointer-events: auto;
+}
+.main-display .card .edit:hover{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.card #delete{
+    position:absolute;
+    bottom:15px;
+    right:15px;
+    width:50px;
+    height:50px;
+    background-color:red;
+    border-radius:50%;
+    border:none;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    opacity: 0;
+    transition:0.3s;
+    pointer-events: none;
+    cursor: pointer;
+}
+.card .text-edit{
+    position:absolute;
+    bottom:15px;
+    right:50%;
+    transform:translateX(50%);
+    width:50px;
+    height:50px;
+    background-color:#2962ff;
+    border-radius:50%;
+    border:none;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    opacity: 0;
+    transition:0.3s;
+    pointer-events:none;
+    cursor: pointer;
+}
+.card .task-header input{
+    position:relative;
+    display:none;
+    font-family: 'Roboto', sans-serif;
+    width:300px;
+    height:3rem;
+    border:none;
+    text-align: center;
+    font-size:2rem;
+    color:white;
+    /* left:50%;
+    top:50%; */
+    background-color:inherit;
+}
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+.card .task-discription textarea{
+    position:relative;
+    text-align:center;
+    font-style: normal;
+    line-height:30px;
+    display:none;
+    height:3rem;
+    border:none;
+    background-color:inherit;
+}
+.card .task-discription textarea::-webkit-resizer{
+    display:none;
+}
+.card .text-edit a{
+    color:white;
+    position:absolute;
+}
+
+.card .text-edit a:first-child{
+    opacity: 0;
+    pointer-events:none;
+}
+.card #delete svg{
+    color:white;
+    
+}
+.card button:first-child{
+    cursor: pointer;
+    opacity: 0;
+    pointer-events:none;
+    position:absolute;
+    top:5px;
+    left:5px;
+    width:50px;
+    height:50px;
+    background-color:transparent;
+    border-radius:50%;
+    border:none;
+}
+.card button:first-child svg{
+    color:white;
+}
+
+/* pagination  */
+.pagination{
+    display:flex;
+    justify-content:space-evenly;
+    width:150px;
+    height:max-content;
+    margin:auto;
+    /* border:1px solid black; */
+}
+.pagination button{
+    background-color:#2962ff;
+    border:none;
+    border-radius: 50%;
+    padding:5px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.pagination button svg{
+    color:white;
+}
+.pagination button:hover{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }

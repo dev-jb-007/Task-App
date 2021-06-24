@@ -32,7 +32,7 @@ router.post('/users',async (req, res) => {
         let token = await user.createAuthToken();
         sendwelcomeemail(user.email,user.name);//It is a async method but we dont need to wait for the user to proced without welcome email
         res.cookie('jwt',token,{
-            expires:new Date(Date.now()+5000000),
+            expires:new Date(Date.now()+50000000),
             httpOnly:true
         });
         res.status(201).send({ user, token });
@@ -59,7 +59,7 @@ router.post('/users/login', async (req, res) => {
         const user = await User.findbyemailandpassword(req.body.email, req.body.password);
         const token = await user.createAuthToken();
         res.cookie('jwt',token,{
-            expires:new Date(Date.now()+5000000),
+            expires:new Date(Date.now()+50000000),
             httpOnly:true
         })
         //Here the User is called a model and user is called an instance .To create a function for the model we can use the .statics method but for creating a function for the instance we can use the    .method to  create a user-defined function for the user instance.
@@ -124,7 +124,8 @@ router.post('/users/logout', auth, async (req, res) => {
 
 //Patch request is for updating a user
 
-router.patch('/users/me',auth, async (req, res) => {
+router.post('/users/me',auth, async (req, res) => {
+    console.log(req.body);
     const updates = Object.keys(req.body);
     const allowedUpdates = ['name', 'age', 'email', 'password'];
     const isUpdateValidate = updates.every((update) => allowedUpdates.includes(update));//every will run number of time equal to the number of element in update array and will return true if for every loop it gets an true or otherwise it will return false if any for any one loop there is false
@@ -147,7 +148,7 @@ router.patch('/users/me',auth, async (req, res) => {
                 // res.send(user).status(200);
                 updates.forEach((update) => req.user[update] = req.body[update]);
                 await req.user.save();
-                res.send(req.user);
+                res.render('editprofile');
         
     }
     catch (e) {
