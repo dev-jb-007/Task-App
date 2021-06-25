@@ -85,7 +85,13 @@ const tasks = async (element) => {
 
     url += `skip=${skip}`;
     let task = document.querySelector('.main-display');
-    const response = await fetch(url);
+    const response = await fetch(url,{
+        method: 'GET',
+        mode: "no-cors",
+        headers:{
+            'Content-Type': 'application/json'
+        }
+    });
     const data = await response.json();
     if (data.error) {
         return alert(data.error.message);
