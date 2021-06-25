@@ -6,10 +6,6 @@ const typewriter = document.querySelector('.automatic-type-writer');
 const nav = document.querySelector('header nav');
 const main = document.querySelector('.main-display');
 
-window.onload = () => {
-    skip = 0;
-}
-
 const tasks = async (element) => {
     let id = 1;
     const modified = document.getElementById('modified');
@@ -19,7 +15,7 @@ const tasks = async (element) => {
     const truetask = document.getElementById('truetask');
     const falsetask = document.getElementById('falsetask');
     let html = ``;
-    let url = "/tasks?";
+    let url = "https://dev-jb-007-task-manager.herokuapp.com/tasks?";
     if (element) {
         if (Ascending.checked == true) {
             Descending.setAttribute('disabled', true);
@@ -176,6 +172,7 @@ const tasks = async (element) => {
         </div>
     </div>`
     })
+    // document.querySelector('.loader').style.display='none';
     task.innerHTML = html;
 }
 window.onload = tasks;
@@ -183,7 +180,7 @@ console.log(document.querySelector('#falsetask'));
 const addtask = async () => {
     const discription = document.querySelector('#discription').value;
     const header = document.querySelector('#header').value.toLowerCase();
-    const response = await fetch('/tasks', {
+    const response = await fetch('https://dev-jb-007-task-manager.herokuapp.com/tasks', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -202,13 +199,13 @@ const addtask = async () => {
     tasks();
 }
 const signout = async () => {
-    await fetch('/users/signout', {
+    await fetch('https://dev-jb-007-task-manager.herokuapp.com/users/logout', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         }
     });
-    window.location.href = "http://localhost:3000"
+    window.location.href = "https://dev-jb-007-task-manager.herokuapp.com"
 }
 
 const deletetask = async (element) => {
@@ -238,7 +235,7 @@ const donetask = async (element) => {
     data = {
         completed: true
     }
-    const response = await fetch(`/tasks/${title}`, {
+    const response = await fetch(`https://dev-jb-007-task-manager.herokuapp.com/tasks/${title}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
@@ -255,7 +252,7 @@ const undotask = async (element) => {
     data = {
         completed: false
     }
-    const response = await fetch(`/tasks/${title}`, {
+    const response = await fetch(`https://dev-jb-007-task-manager.herokuapp.com/tasks/${title}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
@@ -304,7 +301,7 @@ const update = async (element) => {
             discription: newdisc
         };
 
-        const response = await fetch(`/tasks/${initialheader.toLowerCase()}`, {
+        const response = await fetch(`https://dev-jb-007-task-manager.herokuapp.com/tasks/${initialheader.toLowerCase()}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'

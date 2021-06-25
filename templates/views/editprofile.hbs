@@ -26,54 +26,65 @@
             <div class="right-side-button">
                 <div class="profile">
                     <div class="profile-image">
-                        <img src='/users/me/avtar'>
+                        <img src='https://dev-jb-007-task-manager.herokuapp.com/users/me/avtar'>
+                    </div>
+                    <div class="profile-list">
+                        <ul>
+                            <li><a onclick="signout()">Sign Out</a></li>
+                            <li><a href="https://dev-jb-007-task-manager.herokuapp.com/mainpage">Main Page</a></li>
+                        </ul>
                     </div>
                 </div>
         </nav>
-        {{!-- <div class="automatic-type-writer">
-            <h1>Get your task here</h1>
-        </div> --}}
     </header>
-    <form method="POST" action="../users/me" id="login-form" class="login-form" autocomplete="off" role="main">
-        
-        <div onclick="changeprofileimage()"id="profile-image">
+    {{!-- <div class="loader">
+            <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div> --}}
+    <form id="image-upload" action="https://dev-jb-007-task-manager.herokuapp.com/users/me/avtar" method="POST" enctype="multipart/form-data">
+            <input type="file" name="profileimage" id="avtar" />
+            <input type="submit" value="Submit">
+    </form>
+    <form id="main-form" method="POST" action="https://dev-jb-007-task-manager.herokuapp.com/users/me" id="login-form" class="login-form" autocomplete="off" role="main">
 
-        </div>
+        
+
+        
         <div>
             <label class="label-email">
-                <input  type="text" disabled class="text" name="name" placeholder="Name" id="name"tabindex="1" required >
+                <input type="text" disabled class="text" name="name" placeholder="Name" id="name" tabindex="1" required>
                 <span>Name</span>
             </label>
             <a onclick="editcontent(this)">Edit</a>
         </div>
         <div>
             <label class="label-email">
-                <input  type="number" disabled name="age" placeholder="Age" tabindex="1" id="age" required >
+                <input type="number" disabled name="age" placeholder="Age" tabindex="1" id="age" required>
                 <span>Age</span>
             </label>
             <a onclick="editcontent(this)">Edit</a>
         </div>
         <div>
             <label class="label-email">
-                <input  type="email" disabled class="text" name="email" placeholder="Email" id="email" tabindex="1" required >
+                <input type="email" disabled class="text" name="email" placeholder="Email" id="email" tabindex="1"
+                    required>
                 <span>Email</span>
             </label>
             <a onclick="editcontent(this)">Edit</a>
         </div>
-        <input type="checkbox" checked class="show-password a11y-hidden" id="show-password" tabindex="3" >
+        <input type="checkbox" checked class="show-password a11y-hidden" id="show-password" tabindex="3">
         <label class="label-show-password" for="show-password">
             <span>Show Password</span>
         </label>
         <div>
             <label class="label-password">
-                <input  type="text" disabled class="text" name="password" placeholder="Password" id="password"  tabindex="2" >
+                <input type="text" disabled class="text" name="password" placeholder="Password" id="password"
+                    tabindex="2">
                 <span>Password</span>
 
             </label>
             <a onclick="editcontent(this)">Edit</a>
         </div>
-        {{!-- <input type="file" name="avtar" id="avtar"/> --}}
-        <input type="submit" value="Save Changes" />
+        <input type="submit" value="Save Changes" id="submitbtn">
         {{!-- <div class="email">
             <a href="#">Forgot password?</a>
         </div> --}}
@@ -90,7 +101,9 @@
             <div class="shirt-2"></div>
         </figure> --}}
     </form>
+    
 </body>
+
 <script src="/javascript/editprofile.js"></script>
 
 </html>

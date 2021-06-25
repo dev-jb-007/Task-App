@@ -39,20 +39,23 @@ a{
 
 /* Navbar-------------------------------------- */
 header{
+    width:100%;
     padding:0px 40px;
 }
 header nav{
+    width:100%;
     display:flex;
+    /* flex-wrap: wrap; */
     font-size:1.3rem;
 }
 header nav .left-side,header nav .right-side-button{
     
-    flex-basis: 100%;
+    /* flex-basis: 100%; */
     padding:10px 20px;
 }
 header nav .left-side{
     display:flex;
-    flex:2;
+    flex:3;
     justify-content: space-evenly;
     align-items: center;
 }
@@ -88,7 +91,7 @@ header nav .left-side .logo{
     display:flex;
     align-items:center;
     justify-content:flex-start;
-}
+} 
 header nav .left-side .logo img{
     width:40px;
     height:40px;
@@ -129,7 +132,8 @@ header nav .right-side-button a:first-child::after{
     margin-top:100px;
 }
 .automatic-type-writer h1{
-    font-size:4rem;
+    /* font-size:min(10vw,5vw); */
+    font-size:5vw;
     font-family: 'Roboto', sans-serif;
     position:relative;
 }
@@ -178,6 +182,7 @@ header nav .right-side-button a:first-child::after{
 }
 .intro-section .right-side{
     display:flex;
+    height:max-content;
     justify-content:center;
     align-items: center;
 }
@@ -235,7 +240,7 @@ header nav .right-side-button a:first-child::after{
 #login-section .login .login-text h2{
     font-size:3rem;
     font-family:'Roboto', sans-serif;
-    margin-bottom: 70px;
+    
     position: relative;
 }
 #login-section .login .login-text p{
@@ -330,6 +335,19 @@ header nav .right-side-button a:first-child::after{
     width:200px;
     height:200px;
 }
+.social-media .icon{
+    width:50px;
+}
+#signup-section .signup .signup-text{
+    margin-top:40px;
+}
+#signup-section .signup .signup-text{
+    width:80%;
+}
+#signup-section .signup .signup-text h2{
+    font-size:1.2rem;
+    margin-bottom: 30px;
+}
 #signup-section .signup .card h3{
     font-weight: none;
     font-size:1.2rem;
@@ -405,12 +423,118 @@ footer .footer-nav h3{
     transform:translateX(0);
 }
 /* Responsive----------------------- */
-@media(max-width:780px)
+/* @media(max-width:780px)
 {
     header nav{
         display:flex;
         width:100%;
         font-size:1.3rem;
         flex-flow:wrap;
+    }
+} */
+
+@media(max-width:650px)
+{   
+    .automatic-type-writer h1{
+        font-size:5vw;
+    }
+    header{
+        padding:0px 10px;
+    }
+    header nav .left-side .logo{
+        display:none;
+    }
+    header nav .right-side-button{
+        justify-content:flex-end;
+    }
+    header nav{
+        font-size:1.3rem;
+    }
+    .intro-section{
+        margin:auto;
+        width:70%;
+        grid-template-columns: none;
+        grid-template-rows: 1fr 2fr;
+        /* margin-block:50px; */
+        margin-bottom: 80px;
+        margin-top:30px;
+    }
+    .intro-section .right-side{
+        order:1;
+    }
+    .intro-section .left-side{
+        order:2
+    }
+    .intro-section .left-side div  h2{
+        font-size:1.3rem;
+    }
+    #login-section .login .login-text h2{
+        margin-top:40px;
+        font-size:1.3rem;
+        margin-bottom: 10px;
+    }
+    .intro-section .right-side img{
+        width:300px;
+        height:300px;
+    }
+    .intro-section .left-side div{
+        max-width: 100%;
+    }
+    #login-section{
+        width:100%;
+        margin-inline: auto;
+    }
+    #login-section .login{
+        flex-direction:column;
+    }
+    .intro-section .left-side div  h2{
+        margin-bottom: 20px;
+    }
+    #login-section .login .card{
+        width:100%;
+    }
+    #login-section .login .card img{
+        width:80%;
+        height:40%;
+        border:1px solid black;
+    }
+    #login-section .login .card input{
+        width:80%;
+    }
+    #signup-section{
+        width:100%;
+        margin:auto;
+    }
+    #signup-section .signup .signup-text{
+        max-width:100%;
+        order:2;
+    }
+    #signup-section .signup{
+        margin-top:100px;
+        flex-direction:column;
+    }
+    #login-section .login .card{
+        width:80%;
+        height:50%;
+    }
+    #signup-section .signup .card{
+        width:80%;
+        height:50%;
+        order:1;
+    }
+    #signup-section .signup .card img{
+        width:80%;
+        height:40%;
+        border:1px solid black;
+    }
+}
+@media(max-width:500px)
+{
+    header nav{
+        font-size:0.8rem;
+    }
+    .intro-section .right-side img{
+        width:200px;
+        height:200px;
     }
 }

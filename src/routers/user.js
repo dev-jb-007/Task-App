@@ -45,10 +45,11 @@ router.post('/users',async (req, res) => {
 
 //Uploading Images
 router.post('/users/me/avtar',[auth,upload.single('profileimage')],async (req,res) => {
+    console.log('hi');
     let buffer= await sharp(req.file.buffer).resize({width:300,height:300}).png().toBuffer();
     req.user.avtar =buffer;
     await req.user.save();
-    res.render('main');
+    res.render('editprofile');
 },(error,req,res,next) => {
     res.status(400).send({error:error.message});
 })
@@ -110,6 +111,7 @@ router.get('/users/me', auth, async (req, res) => {
 
 //Loggin out
 router.post('/users/logout', auth, async (req, res) => {
+    console.log('hi');
     try {
         req.user.tokens = req.user.tokens.filter((token) => {
             return token.token !== req.token;
