@@ -85,7 +85,7 @@ const tasks = async (element) => {
 
     url += `skip=${skip}`;
     let task = document.querySelector('.main-display');
-    const response = await fetch(url,{mode: "no-cors"});
+    const response = await fetch(url);
     const data = await response.json();
     if (data.error) {
         return alert(data.error.message);
