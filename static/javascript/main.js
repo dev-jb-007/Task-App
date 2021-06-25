@@ -368,55 +368,61 @@ document.addEventListener("mousedown", (event) => {
         document.styleSheets[1].addRule('.add-task-card h4::after', 'transform: scaleX(0)');
     }
 });
-
+const x = window.matchMedia("(max-width: 650px)")
 const tasksoptions = (element) => {
-
-    let card = element.parentElement.parentElement;
     let parent = element.parentElement.parentElement.parentElement.parentElement;
-
-    for (let i = 0; i < 6; i++) {
-
-        if (parent.children[i]) {
+    let card = element.parentElement.parentElement;
+    if (!x.matches) {
 
 
-            if (card == parent.children[i].children[0]) {
-                card.style.zIndex = 10;
-                card.children[0].style.opacity = 1;
-                card.children[0].style.pointerEvents = 'auto';
-                if (i == 0) {
-                    card.style.transform = 'translate(110%,50%)'
 
-                }
-                else if (i == 1) {
-                    card.style.transform = 'translate(0,50%)'
-                }
-                else if (i == 2) {
-                    card.style.transform = 'translate(-110%,50%)'
-                }
-                else if (i == 3) {
-                    card.style.transform = 'translate(110%,-50%)'
-                }
-                else if (i == 4) {
-                    card.style.transform = 'translate(0,-50%)'
+        for (let i = 0; i < 6; i++) {
+
+            if (parent.children[i]) {
+
+
+                if (card == parent.children[i].children[0]) {
+                    card.style.zIndex = 10;
+                    card.children[0].style.opacity = 1;
+                    card.children[0].style.pointerEvents = 'auto';
+                    if (i == 0) {
+                        card.style.transform = 'translate(110%,50%)'
+
+                    }
+                    else if (i == 1) {
+                        card.style.transform = 'translate(0,50%)'
+                    }
+                    else if (i == 2) {
+                        card.style.transform = 'translate(-110%,50%)'
+                    }
+                    else if (i == 3) {
+                        card.style.transform = 'translate(110%,-50%)'
+                    }
+                    else if (i == 4) {
+                        card.style.transform = 'translate(0,-50%)'
+                    }
+                    else {
+                        card.style.transform = 'translate(-110%,-50%)'
+                    }
                 }
                 else {
-                    card.style.transform = 'translate(-110%,-50%)'
+                    parent.children[i].children[0].style.opacity = 0;
+                    parent.children[i].children[0].style.pointerEvents = 'none';
                 }
             }
-            else {
-                parent.children[i].children[0].style.opacity = 0;
-                parent.children[i].children[0].style.pointerEvents = 'none';
-            }
         }
+        typewriter.style.opacity = 0.2;
+        nav.style.opacity = 0.2;
     }
+    card.children[0].style.opacity = 1;
+    card.children[0].style.pointerEvents = 'auto';
     card.children[3].style.opacity = '0';
     card.children[3].style.pointerEvents = 'none';
     card.children[5].style.opacity = '1';
     card.children[5].style.pointerEvents = 'auto';
     card.children[6].style.opacity = '1';
     card.children[6].style.pointerEvents = 'auto';
-    typewriter.style.opacity = 0.2;
-    nav.style.opacity = 0.2;
+    
     const newfunction = () => {
         typewriter.style.opacity = 1;
         nav.style.opacity = 1;
@@ -455,3 +461,4 @@ const tasksoptions = (element) => {
         document.querySelector('#close6').addEventListener("click", newfunction);
     }
 }
+

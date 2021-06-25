@@ -24,7 +24,7 @@ const login=async () =>
         error.innerHTML=`wrong details`
         return;
     }
-    window.location.href='https://dev-jb-007-task-manager.herokuapp.com/mainpage';
+    window.location.href='http://dev-jb-007-task-manager.herokuapp.com/mainpage';
 
     // console.log(answer);
 }
@@ -47,11 +47,13 @@ const signup=async () =>{
         },
         body:JSON.stringify(data)
     });
-    window.location.href='https://dev-jb-007-task-manager.herokuapp.com/mainpage';
+    window.location.href='http://dev-jb-007-task-manager.herokuapp.com/mainpage';
 
     // console.log(response);
 }
-
+window.addEventListener('load', ()=>{
+    document.querySelector('.loader').style.display ='none';
+})
 
 
 // Client side javascript

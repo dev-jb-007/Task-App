@@ -11,7 +11,7 @@ const getinfo=async () => {
     const age=document.getElementById('age');
     const email=document.getElementById('email');
     const password=document.getElementById('password');
-    const response=await fetch('https://dev-jb-007-task-manager.herokuapp.com/users/me');
+    const response=await fetch('http://dev-jb-007-task-manager.herokuapp.com/users/me');
     const data=await response.json();
     
     name.value=data.name;
@@ -26,7 +26,7 @@ const signout = async () => {
             'Content-Type': 'application/json'
         }
     });
-    window.location.href = "https://dev-jb-007-task-manager.herokuapp.com"
+    window.location.href = "http://dev-jb-007-task-manager.herokuapp.com"
 }
 
 window.onload=getinfo;
