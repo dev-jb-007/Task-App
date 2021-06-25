@@ -19,12 +19,12 @@ const login=async () =>
         body:JSON.stringify(data)
     });
     let answer=await response.json();
-    if(Object.keys(answer).length==0){
-        let error=document.querySelector('#error');
-        error.style.width='max-content';
-        error.innerHTML=`wrong details`
-        return;
-    }
+    // if(Object.keys(answer).length==0){
+    //     let error=document.querySelector('#error');
+    //     error.style.width='max-content';
+    //     error.innerHTML=`wrong details`
+    //     return;
+    // }
     window.location.href='http://dev-jb-007-task-manager.herokuapp.com/mainpage';
 
     // console.log(answer);
@@ -75,7 +75,7 @@ const observer=new IntersectionObserver((entries,observer) => {
         console.log(entry.target);
         card.style.transform ='translateX(0)';
         text.style.transform ='translateX(0)';
-        observer.unobserve(entry);
+        observer.unobserve(entry.target);
     })
 },options)
 observer.observe(logsection);
@@ -89,7 +89,7 @@ const observer2=new IntersectionObserver((entries,observer) => {
         console.log(entry.target);
         document.getElementById('signup-card').style.transform ='translateX(0)';
         document.getElementById('signup-text').style.transform ='translateX(0)';
-        observer.unobserve(entry);
+        observer.unobserve(entry.target);
     })
 },options)
 observer2.observe(signsection);
