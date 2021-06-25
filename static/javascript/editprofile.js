@@ -11,7 +11,7 @@ const getinfo=async () => {
     const age=document.getElementById('age');
     const email=document.getElementById('email');
     const password=document.getElementById('password');
-    const response=await fetch('http://dev-jb-007-task-manager.herokuapp.com/users/me');
+    const response=await fetch('http://dev-jb-007-task-manager.herokuapp.com/users/me',{mode: "no-cors"});
     const data=await response.json();
     
     name.value=data.name;
@@ -21,6 +21,7 @@ const getinfo=async () => {
 }
 const signout = async () => {
     await fetch('/users/signout', {
+        mode: "no-cors",
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

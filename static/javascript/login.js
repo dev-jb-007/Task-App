@@ -11,6 +11,7 @@ const login=async () =>
         password
     }
     let response=await fetch('users/login',{
+        mode: "no-cors",
         method:'POST',
         headers:{
             'Content-Type': 'application/json'
@@ -41,6 +42,7 @@ const signup=async () =>{
         password
     }
     let response=await fetch('users',{
+        mode: "no-cors",
         method:'POST',
         headers:{
             'Content-Type': 'application/json'

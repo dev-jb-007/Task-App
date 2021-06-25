@@ -85,7 +85,7 @@ const tasks = async (element) => {
 
     url += `skip=${skip}`;
     let task = document.querySelector('.main-display');
-    const response = await fetch(url);
+    const response = await fetch(url,{mode: "no-cors"});
     const data = await response.json();
     if (data.error) {
         return alert(data.error.message);
@@ -181,6 +181,7 @@ const addtask = async () => {
     const discription = document.querySelector('#discription').value;
     const header = document.querySelector('#header').value.toLowerCase();
     const response = await fetch('https://dev-jb-007-task-manager.herokuapp.com/tasks', {
+        mode: "no-cors",
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -200,6 +201,7 @@ const addtask = async () => {
 }
 const signout = async () => {
     await fetch('https://dev-jb-007-task-manager.herokuapp.com/users/logout', {
+        mode: "no-cors",    
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -211,6 +213,7 @@ const signout = async () => {
 const deletetask = async (element) => {
     let task = element.parentElement.children[1].innerText.toLowerCase();
     const response = await fetch(`/tasks/${task}`, {
+        mode: "no-cors",
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
@@ -236,6 +239,7 @@ const donetask = async (element) => {
         completed: true
     }
     const response = await fetch(`https://dev-jb-007-task-manager.herokuapp.com/tasks/${title}`, {
+        mode: "no-cors",
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
@@ -253,6 +257,7 @@ const undotask = async (element) => {
         completed: false
     }
     const response = await fetch(`https://dev-jb-007-task-manager.herokuapp.com/tasks/${title}`, {
+        mode: "no-cors",    
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
@@ -302,6 +307,7 @@ const update = async (element) => {
         };
 
         const response = await fetch(`https://dev-jb-007-task-manager.herokuapp.com/tasks/${initialheader.toLowerCase()}`, {
+            mode: "no-cors",
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
