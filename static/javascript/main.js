@@ -15,7 +15,7 @@ const tasks = async (element) => {
     const truetask = document.getElementById('truetask');
     const falsetask = document.getElementById('falsetask');
     let html = ``;
-    let url = "https://dev-jb-007-task-manager.herokuapp.com/tasks?";
+    let url = "http://localhost:3000/tasks?";
     if (element) {
         if (Ascending.checked == true) {
             Descending.setAttribute('disabled', true);
@@ -85,7 +85,7 @@ const tasks = async (element) => {
 
     url += `skip=${skip}`;
     let task = document.querySelector('.main-display');
-    const response = await fetch(url,{
+    const response = await fetch('http://localhost:3000/tasks?skip=0',{
         method: 'GET',
         mode: "no-cors",
         headers:{
@@ -193,7 +193,7 @@ const addtask = async () => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({ discription, title: header })
-    })
+    });
     const data = await response.json();
     if (data.error) {
         return alert(data.error.message);
