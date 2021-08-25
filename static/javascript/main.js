@@ -185,7 +185,7 @@ console.log(document.querySelector('#falsetask'));
 const addtask = async () => {
     const discription = document.querySelector('#discription').value;
     const header = document.querySelector('#header').value.toLowerCase();
-    const response = await fetch('http://localhost:3000/tasks', {
+    const response = await fetch('/tasks', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

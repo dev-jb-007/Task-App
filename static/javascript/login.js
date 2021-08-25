@@ -49,7 +49,7 @@ const signup=async () =>{
         },
         body:JSON.stringify(data)
     });
-    window.location.href='http://localhost:3000/mainpage';
+    window.location.href='/mainpage';
 
     // console.log(response);
 }
