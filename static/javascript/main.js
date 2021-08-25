@@ -15,7 +15,7 @@ const tasks = async (element) => {
     const truetask = document.getElementById('truetask');
     const falsetask = document.getElementById('falsetask');
     let html = ``;
-    let url = "http://localhost:3000/tasks?";
+    let url = "/tasks?";
     if (element) {
         if (Ascending.checked == true) {
             Descending.setAttribute('disabled', true);
@@ -85,9 +85,8 @@ const tasks = async (element) => {
 
     url += `skip=${skip}`;
     let task = document.querySelector('.main-display');
-    const response = await fetch('http://localhost:3000/tasks?skip=0',{
+    const response = await fetch(url,{
         method: 'GET',
-        mode: "no-cors",
         headers:{
             'Content-Type': 'application/json'
         }
@@ -186,8 +185,7 @@ console.log(document.querySelector('#falsetask'));
 const addtask = async () => {
     const discription = document.querySelector('#discription').value;
     const header = document.querySelector('#header').value.toLowerCase();
-    const response = await fetch('https://dev-jb-007-task-manager.herokuapp.com/tasks', {
-        mode: "no-cors",
+    const response = await fetch('http://localhost:3000/tasks', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -206,14 +204,14 @@ const addtask = async () => {
     tasks();
 }
 const signout = async () => {
-    await fetch('https://dev-jb-007-task-manager.herokuapp.com/users/logout', {
+    await fetch('/users/logout', {
         mode: "no-cors",    
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         }
     });
-    window.location.href = "https://dev-jb-007-task-manager.herokuapp.com"
+    window.location.href = "/"
 }
 
 const deletetask = async (element) => {
@@ -244,8 +242,7 @@ const donetask = async (element) => {
     data = {
         completed: true
     }
-    const response = await fetch(`https://dev-jb-007-task-manager.herokuapp.com/tasks/${title}`, {
-        mode: "no-cors",
+    const response = await fetch(`/tasks/${title}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
@@ -262,7 +259,7 @@ const undotask = async (element) => {
     data = {
         completed: false
     }
-    const response = await fetch(`https://dev-jb-007-task-manager.herokuapp.com/tasks/${title}`, {
+    const response = await fetch(`/tasks/${title}`, {
         mode: "no-cors",    
         method: 'PATCH',
         headers: {
@@ -312,7 +309,7 @@ const update = async (element) => {
             discription: newdisc
         };
 
-        const response = await fetch(`https://dev-jb-007-task-manager.herokuapp.com/tasks/${initialheader.toLowerCase()}`, {
+        const response = await fetch(`/tasks/${initialheader.toLowerCase()}`, {
             mode: "no-cors",
             method: 'PATCH',
             headers: {

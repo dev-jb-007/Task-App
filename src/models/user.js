@@ -1,5 +1,6 @@
 const mongoose=require('mongoose');
 const validator=require('validator');
+require('dotenv').config();
 const bcrypt=require('bcryptjs');
 const jwt=require('jsonwebtoken');
 const Task = require('../models/task');
@@ -24,15 +25,15 @@ const userSchema=new mongoose.Schema({
     email:{
         type:String,
         unique:true,
-        require:true,
+        required:true,
         trim:true,
         lowercase:true,
-        validate(email){
-            if(!validator.isEmail(email))
-            {
-                throw new Error('Enter a valid email')
-            }
-        }
+        // validate(email){
+        //     if(!validator.isEmail(email))
+        //     {
+        //         throw new Error('Enter a valid email')
+        //     }
+        // }
     },
     password:{
         trim:true,
@@ -89,6 +90,7 @@ userSchema.statics.findbyemailandpassword=async (email,password)=>{
     if(!isValid){
         throw new Error('Could not find');
     }
+    console.log(user);
     return user;
 }
 
@@ -97,6 +99,7 @@ userSchema.methods.createAuthToken=async function(){
     const user=this;
     const token=jwt.sign({_id:user._id.toString()},process.env.JWT_SECRET);
     user.tokens=user.tokens.concat({token:token});//.concat combines two or more array
+    console.log(user);
     await user.save();
     return token;
 }

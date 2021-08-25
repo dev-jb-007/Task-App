@@ -3,7 +3,9 @@ const app= express();
 const router=express.Router();
 const auth=require('../Middlewares/auth');
 const Task = require('../models/task');
-
+const cookieParser=require('cookie-parser');
+router.use(cookieParser());
+const jwt=require('jsonwebtoken');
 //Ports
 router.get('/tasks/:id',auth,async (req, res) => {
     try{

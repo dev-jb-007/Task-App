@@ -10,8 +10,8 @@ const login=async () =>
         email,
         password
     }
-    let response=await fetch('users/login',{
-        mode: "no-cors",
+    console.log(data);
+    let response=await fetch('/users/login',{
         method:'POST',
         headers:{
             'Content-Type': 'application/json'
@@ -25,7 +25,7 @@ const login=async () =>
     //     error.innerHTML=`wrong details`
     //     return;
     // }
-    window.location.href='http://localhost:3000/mainpage';
+    window.location.href='/mainpage';
 
     // console.log(answer);
 }
@@ -41,8 +41,8 @@ const signup=async () =>{
         email,
         password
     }
-    let response=await fetch('users',{
-        mode: "no-cors",
+    console.log(data);
+    let response=await fetch('/users',{
         method:'POST',
         headers:{
             'Content-Type': 'application/json'

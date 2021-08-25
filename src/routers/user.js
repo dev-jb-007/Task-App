@@ -6,6 +6,8 @@ const User = require('../models/user');
 const auth = require('../Middlewares/auth');
 const multer=require('multer');
 const sharp=require('sharp');
+const cookieParser=require('cookie-parser');
+router.use(cookieParser());
 const {sendwelcomeemail,sendgoodbyeemail}=require('../emails/account');
 const upload=multer({
     //if we  need to pass the binary data of the image to  the function we dont need to provide dest option
@@ -26,14 +28,14 @@ const upload=multer({
 //Create user
 router.post('/users',async (req, res) => {
     try {
-        
+        console.log(req.body);
         let user = new User(req.body);
-        
+        console.log(user);
         let token = await user.createAuthToken();
         sendwelcomeemail(user.email,user.name);//It is a async method but we dont need to wait for the user to proced without welcome email
         res.cookie('jwt',token,{
-            expires:new Date(Date.now()+500000),
-            httpOnly:true
+            expires:new Date(Date.now()+5000000000),
+            httpOnly:true,
         });
         res.status(201).send({ user, token });
     }
@@ -57,12 +59,17 @@ router.post('/users/me/avtar',[auth,upload.single('profileimage')],async (req,re
 //Login User
 router.post('/users/login', async (req, res) => {
     try {
+        console.log('hi');
+        console.log(req.body);
         const user = await User.findbyemailandpassword(req.body.email, req.body.password);
+        console.log(user);
         const token = await user.createAuthToken();
+        console.log(token);
         res.cookie('jwt',token,{
-            expires:new Date(Date.now()+500000),
+            expires:new Date(Date.now()+5000000000),
             httpOnly:true
         })
+        console.log(cookie);
         //Here the User is called a model and user is called an instance .To create a function for the model we can use the .statics method but for creating a function for the instance we can use the    .method to  create a user-defined function for the user instance.
         res.send({
             user,

@@ -110,6 +110,7 @@ header nav .right-side-button .profile:hover >.profile-list{
     border-radius:50%;
     background-color: #2962ff;
     position:relative;
+    /* top:100px; */
     transition: 0.5s;
 }
 .add-task .cross-image svg{
